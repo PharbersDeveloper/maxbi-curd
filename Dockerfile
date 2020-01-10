@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
 	apt-get install -y nodejs
 
-LABEL report-curd.version=0.0.1
+LABEL maxbi-curd.version=0.0.1
 
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN export DEBIAN_FRONTEND=noninteractive
@@ -19,9 +19,9 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 WORKDIR /app
 
-RUN git clone https://github.com/PharbersDeveloper/report-curd.git 
+RUN git clone https://github.com/PharbersDeveloper/maxbi-curd.git 
 
-WORKDIR /app/report-curd
+WORKDIR /app/maxbi-curd
 
 RUN npm install && \
 	npm run build && \

@@ -33,7 +33,6 @@ export default class AppDelegate {
     private conf: ServerConf
     private app = express()
     private router = express.Router()
-    // private exportHandler: ExportProejct = null
     private kafka: KafkaDelegate = null // new KafkaDelegate()
 
     public exec() {
@@ -103,6 +102,7 @@ export default class AppDelegate {
                 chartConfig : curChart
             })
         } )
+
         // Add kafka producer
         // const kfkTestRoute = "/kfk"
         // this.router.get(kfkTestRoute, async (req, res) => {
@@ -125,7 +125,6 @@ export default class AppDelegate {
             jsonConvert.ignorePrimitiveChecks = false // don't allow assigning number to string etc.
             jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL // never allow null
             this.conf = jsonConvert.deserializeObject(doc, ServerConf)
-            // this.exportHandler = new ExportProejct(this.conf.oss)
             this.kafka = new KafkaDelegate(this.conf.kfk)
         } catch (e) {
             PhLogger.fatal( e as Error )

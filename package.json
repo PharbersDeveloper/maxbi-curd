@@ -1,5 +1,5 @@
 {
-  "name": "report-curd",
+  "name": "maxbi-curd",
 	"version": "0.0.1",
   "description": "",
   "main": "dist/src/index.js",
@@ -14,7 +14,7 @@
     "watch": "mocha-typescript-watch",
     "prepare": "tsc"
   },
-  "author": "alfred, Dante Sun",
+  "author": "alfred",
   "license": "GPL3.0",
   "dependencies": {
     "@types/js-yaml": "^3.12.1",

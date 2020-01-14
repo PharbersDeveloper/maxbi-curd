@@ -6,3 +6,5 @@ log
 tmp/*
 secrets/*
 *.DS_Store
+test/model/excelDataInput.ts
+conf/server.yml

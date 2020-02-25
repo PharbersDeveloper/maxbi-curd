@@ -8,3 +8,4 @@ secrets/*
 *.DS_Store
 test/model/excelDataInput.ts
 conf/server.yml
+conf

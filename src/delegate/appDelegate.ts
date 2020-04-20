@@ -13,6 +13,7 @@ import { ServerConf } from "../configFactory/serverConf"
 import KafkaDelegate from "../kafka/KafkaDelegate"
 import PhLogger from "../logger/phLogger"
 import Chart from "../models/Chart"
+import Diagram from "../models/Diagram"
 import { urlEncodeFilterParser } from "./urlEncodeFilterParser"
 /**
  * The summary section should be brief. On a documentation web site,
@@ -92,16 +93,30 @@ export default class AppDelegate {
         })
 
         // 获取 chart
-        this.router.get("/chart/:id", async (req, res) => {
-            const chartId: string = req.params.id
-            PhLogger.info(chartId)
-            const ct = new Chart().getModel()
-            const curChart = await ct.findById(chartId).exec()
+        // this.router.get("/chart/:id", async (req, res) => {
 
-            res.json({
-                chartConfig : curChart
-            })
-        } )
+        //     const chartId: string = req.params.id
+        //     PhLogger.info(chartId)
+        //     const ct = new Chart().getModel()
+        //     const curChart = await ct.findById(chartId).exec()
+
+        //     res.json({
+        //         chartConfig : curChart
+        //     })
+        // } )
+
+        // 获取 d3-chart
+        // this.router.get("/diagram/:id", async (req, res) => {
+        //     const chartId: string = req.params.id
+        //     PhLogger.info(chartId)
+        //     const ct = new Diagram().getModel()
+        //     const curChart = await ct.findById(chartId).exec()
+        //     PhLogger.info(curChart)
+
+        //     res.json({
+        //         chartConfig : curChart
+        //     })
+        // } )
 
         // Add kafka producer
         // const kfkTestRoute = "/kfk"

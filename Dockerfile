@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
 	apt-get install -y nodejs
 
-LABEL maxbi-curd.version=0.0.1
+LABEL maxbi-curd.version=0.0.2
 
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN export DEBIAN_FRONTEND=noninteractive

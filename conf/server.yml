@@ -3,6 +3,8 @@ models:
     reg: charts
   - file: Metadata
     reg: metadatas
+  - file: Diagram
+    reg: diagrams
 mongo:
   algorithm: mongodb
   host: 59.110.31.50

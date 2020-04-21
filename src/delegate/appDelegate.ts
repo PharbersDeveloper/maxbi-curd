@@ -60,7 +60,7 @@ export default class AppDelegate {
         } ) )
 
         // a middleware function with no mount path. This code is executed for every request to the router
-        this.router.use((req, res, next) => {
+        // this.router.use((req, res, next) => {
             // 不再经过 oauth 验证 2020-01-10
             // const auth = req.get("Authorization")
             // if (auth === undefined) {
@@ -83,57 +83,21 @@ export default class AppDelegate {
             //         res.status(500).send(response.data)
             //         return
             //     } else {
-                    next()
+                    // next()
             //     }
             // }).catch((error) => {
             //     PhLogger.error("auth error")
             //     res.status(500).send(error)
             //     return
             // })
-        })
-
-        // 获取 chart
-        // this.router.get("/chart/:id", async (req, res) => {
-
-        //     const chartId: string = req.params.id
-        //     PhLogger.info(chartId)
-        //     const ct = new Chart().getModel()
-        //     const curChart = await ct.findById(chartId).exec()
-
-        //     res.json({
-        //         chartConfig : curChart
-        //     })
-        // } )
-
-        // 获取 d3-chart
-        // this.router.get("/diagram/:id", async (req, res) => {
-        //     const chartId: string = req.params.id
-        //     PhLogger.info(chartId)
-        //     const ct = new Diagram().getModel()
-        //     const curChart = await ct.findById(chartId).exec()
-        //     PhLogger.info(curChart)
-
-        //     res.json({
-        //         chartConfig : curChart
-        //     })
-        // } )
-
-        // Add kafka producer
-        // const kfkTestRoute = "/kfk"
-        // this.router.get(kfkTestRoute, async (req, res) => {
-        //     const value = { "records": [ { "value" : { "test" : "alfred test" } } ] }
-        //     this.kafka.pushMessage(value)
-        //     res.json( {
-        //         jobId: "heiheihei"
-        //     } )
-        // } )
+        // })
 
         this.app.use("/", this.router)
     }
 
     protected loadConfiguration() {
         try {
-            const path = process.env.PH_TS_SERVER_HOME + "/conf"
+            const path = process.env.PH_TS_MAXBI_HOME + "/conf"
             const jsonConvert: JsonConvert = new JsonConvert()
             const doc = yaml.safeLoad(fs.readFileSync(path + "/server.yml", "utf8"))
             // jsonConvert.operationMode = OperationMode.LOGGING // print some debug data
@@ -148,7 +112,7 @@ export default class AppDelegate {
 
     protected generateModels(): any {
         const prefix = "/dist/src/models/"
-        const path = process.env.PH_TS_SERVER_HOME + prefix
+        const path = process.env.PH_TS_MAXBI_HOME + prefix
         const suffix = ".js"
         const result: {[index: string]: any} = {}
         this.conf.models.forEach((ele) => {

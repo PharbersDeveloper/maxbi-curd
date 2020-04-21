@@ -9,3 +9,4 @@ secrets/*
 test/model/excelDataInput.ts
 conf/server.yml
 conf
+yarn-error.log

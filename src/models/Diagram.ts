@@ -1,6 +1,6 @@
 "use strict"
-import { prop, Typegoose } from "typegoose"
-// import Metadata from "./Metadata"
+import { prop, Ref, Typegoose } from "typegoose"
+import Metadata from "./Metadata"
 import IModelBase from "./modelBase"
 
 class Diagram extends Typegoose implements IModelBase<Diagram> {
@@ -11,6 +11,8 @@ class Diagram extends Typegoose implements IModelBase<Diagram> {
     @prop({ default: [], required: true })
     public colorPool: string[]
 
+    // @arrayProp( { itemsRef: Product, required: false, default: [] } )
+    // public products: Array<Ref<Product>>
     @prop({ default: [], required: true })
     public commonts: string[]
 

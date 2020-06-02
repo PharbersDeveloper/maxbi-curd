@@ -9,24 +9,24 @@ class Diagram extends Typegoose implements IModelBase<Diagram> {
     // public metadata?: Ref<Metadata>
 
     @prop({ default: [], required: true })
-    public colorPool: object
+    public colorPool: string[]
 
     @prop({ default: [], required: true })
-    public commonts: object
+    public commonts: string[]
 
     @prop({ default: [], required: false })
-    public dimension: object
+    public dimension: string[]
 
     @prop({ default: [], required: false })
-    public dimensions: object
+    public dimensions: string[]
 
-    @prop({ default: null, required: true })
-    public measure: object
+    @prop({ default: [], required: false })
+    public measure: number[]
 
     @prop({ default: null, required: false })
     public geo: object
 
-    @prop({ default: null, required: true })
+    @prop({ default: null, required: false })
     public grid: object
 
     @prop({ default: null, required: false })
@@ -38,13 +38,13 @@ class Diagram extends Typegoose implements IModelBase<Diagram> {
     @prop({ default: "", required: true })
     public title: string
 
-    @prop({ default: "", required: true })
-    public type: string
+    // @prop({ default: "", required: true })
+    // public type: string
 
     @prop({ default: null, required: false })
     public xAxis: object
 
-    @prop({ default: "", required: false })
+    @prop({ default: null, required: false })
     public yAxis: object
 
     @prop({ default: null, required: false })
